@@ -1,0 +1,124 @@
+127.0.0.1 localhost
+::1 ip6-localhost
+#最好别删上面这两个，localhost定义
+#部分规则有重复
+#部分规则有重复
+#部分规则有重复
+#软件安装验证相关，建议屏蔽，你懂的
+127.0.0.1 api.installer.xiaomi.com
+127.0.0.1 beacon-api.aliyuncs.com
+127.0.0.1 sdkconfig.ad.xiaomi.com
+127.0.0.1 api-middle.transfer.sec.miui.com
+127.0.0.1 api.sec.miui.com
+#手机管家相关，病毒数据库和联网查杀
+#不过安卓系统病毒并不算多，由于和隐私相关故做屏蔽
+127.0.0.1 miui-fxcse.avlyun.com
+127.0.0.1 adv.sec.miui.com
+127.0.0.1 tmfsdk.m.qq.com
+127.0.0.1 miav-cse.avlyun.com
+127.0.0.1 tracking.miui.com
+127.0.0.1 a0.app.xiaomi.com
+127.0.0.1 update.avlyun.sec.miui.com
+127.0.0.1 flash.sec.miui.com
+127.0.0.1 data.sec.miui.com
+127.0.0.1 auth.be.sec.miui.com
+#这应该是安装验证，建议屏蔽
+127.0.0.1 api-installer.pt.xiaomi.com
+127.0.0.1 preview-api.installer.xiaomi.com
+127.0.0.1 test-api-installer.pt.xiaomi.com
+#不知道干嘛的
+127.0.0.1 api.hybrid.intl.xiaomi.com
+127.0.0.1 api.hybrid.xiaomi.com
+127.0.0.1 sdkconfig.ad.intl.xiaomi.com
+127.0.0.1 sdkconfig.ad.xiaomi.com
+#还是不知道干嘛的
+127.0.0.1 data.game.xiaomi.com
+#小米妙播？这东西也不需要联网啊
+127.0.0.1 milink.ac.mi.com
+127.0.0.1 link.g.mi.com
+127.0.0.1 connect-milink.g.mi.com>
+#安全相关
+127.0.0.1 api.miui.security.xiaomi.com
+#安全相关
+127.0.0.1 auth.be.sec.miui.com
+127.0.0.1 authbe.sec.intl.miui.com
+127.0.0.1 flash.sec.miui.com
+127.0.0.1 data.sec.intl.miui.com
+127.0.0.1 data.sec.miui.com
+#安全相关
+127.0.0.1 adv.sec.intl.miui.com
+127.0.0.1 adv.sec.miui.com
+#鬼知道啥东西
+127.0.0.1 api.jr.mi.com
+#安全相关
+127.0.0.1 embed.sec.miui.com
+#鬼知道啥东西？隐私保护需要联网那还叫隐私保护？简直是隐私破坏吧
+127.0.0.1 privacy.api.intl.miui.com
+#下面这段修改自酷安@诺蓝的MIUIYYDS，虽然和模块主题貌似不搭但是由于应该确实有效果就加进去了
+#为什么要把地址由0.0.0.0改成127.0.0.1呢？不都是指向localhost吗？
+#问就是个人比较喜欢用127.0.0.1罢了
+#云控下发？不过云控已经用空文件淦没了，所以留着仅供观赏
+127.0.0.1 preview-jupiter.sys.miui.com
+127.0.0.1 jupiter.intl.sys.miui.com
+127.0.0.1 jupiter.sys.miui.com
+127.0.0.1 jupiter.rus.sys.miui.com
+127.0.0.1 sdkconfig.ad.xiaomi.com
+127.0.0.1 tracking.miui.com
+127.0.0.1 tracking.intl.miui.com
+127.0.0.1 tracking.rus.miui.com
+127.0.0.1 tracking.india.miui.com
+127.0.0.1 sdkconfig.ad.intl.xiaomi.com
+127.0.0.1 sdkconfig.ad.india.xiaomi.com
+127.0.0.1 sdkconfig.ad.rus.xiaomi.com
+127.0.0.1 staging.sdkconfig.ad.xiaomi.srv
+127.0.0.1 staging.tracking.miui.com
+127.0.0.1 api.developer.xiaomi.com
+#感谢这个项目来的host文件https://github.com/Moe-hacker/FuckMIUI
+#此处主要屏蔽小米云扫描组件，当云扫描(备份)用不了时，请删除以下这部分的规则
+0.0.0.0 log.avlyun.sec.intl.miui.com
+0.0.0.0 update.avlyun.sec.miui.com
+0.0.0.0 ixav-cse.avlyun.com
+0.0.0.0 logupdate.avlyun.sec.miui.com
+0.0.0.0 miui-fxcse.avlyun.com
+0.0.0.0 sdkconf.avlyun.com
+0.0.0.0 sdkconf.avlyun.com
+0.0.0.0 miav-cse.avlyun.com
+0.0.0.0 miav-cse.avlyun.com
+0.0.0.0 api.installer.xiaomi.com
+0.0.0.0 tmfsdk.m.qq.com
+0.0.0.0 a0.app.xiaomi.com
+#禁用后将无法云扫描病毒
+127.0.0.1 etl-xlmc-ssl.sandai.net
+127.0.0.1 cn.app.chat.xiaomi.net
+#疑似云盘，自行决定
+#127.0.0.1 pdc.micloud.xiaomi.net
+127.0.0.1 a.hl.mi.com
+#禁用后可能会导致小米浏览器无法下载APK，因为有垃圾推广安装
+127.0.0.1 idm.api.io.mi.com
+127.0.0.1 api.jr.mi.com
+127.0.0.1 ssl-cdn.static.browser.mi-img.com
+127.0.0.1 flash.sec.miui.com
+# MIUI 安装检查
+127.0.0.1 api.installer.xiaomi.com
+# 流量更新、病毒白名单
+127.0.0.1 api.sec.miui.com
+
+# 禁用后无法开启部分权限
+#127.0.0.1 srv.sec.miui.com
+
+#权限云控 好像只针对部分机型？
+127.0.0.1 auth.be.sec.miui.com
+
+#反诈
+127.0.0.1 flash.sec.miui.com
+
+
+# 系统应用检查更新 e.g 下载管理
+127.0.0.1 api.developer.xiaomi.com
+
+#??? 云控?
+127.0.0.1 qsb.browser.miui.srv
+127.0.0.1 rom.pt.miui.srv
+127.0.0.1 ccc.sys.miui.com
+127.0.0.1 jupiter.sys.miui.com
+127.0.0.1 metok.sys.miui.com
