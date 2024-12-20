@@ -39,6 +39,5 @@ while [ $count -lt $limit ]; do
     sleep 2
 done
 
-#借鉴https://github.com/symbuzzer/systemless-hosts-KernelSU-module
 MODDIR="${0%/*}"
 mount -t overlay -o lowerdir=/system/etc,upperdir=$MODDIR/system/etc,workdir=$MODDIR/worker /system/etc

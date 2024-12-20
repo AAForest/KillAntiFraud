@@ -15,50 +15,50 @@ echo "
                                       
 "
 
+# 确定模块路径
 if [ -z "$MODPATH" ]; then
     MODPATH="/data/adb/modules/$(basename $0)"
-    ui_print "- 使用默认模块路径: $MODPATH"
+    echo "- 使用默认模块路径: $MODPATH"
 fi
 
-HOSTS_PATH="/system/etc"
-ui_print "- 正在将 hosts 文件放置到正确位置..."
-mkdir -p "$MODPATH$HOSTS_PATH"
-mv -f "$MODPATH/hosts" "$MODPATH$HOSTS_PATH"
+HOSTS_PATH="/system/etc/hosts"
+MODULE_HOSTS="$MODPATH/hosts"
 
-ui_print "- 正在执行，请稍候..."
-for i in $(seq 1 10); do
-    sleep 0.2  # 模拟每步耗时
-    ui_print "进度: $((i * 10))%"
-done
+# 替换 hosts 文件
+if [ -f "$MODULE_HOSTS" ]; then
+    echo "- 正在替换 hosts 文件..."
+    mkdir -p "$(dirname "$MODPATH$HOSTS_PATH")"
+    mv -f "$MODULE_HOSTS" "$MODPATH$HOSTS_PATH"
+    echo "- hosts 文件已成功替换！"
+else
+    echo "- 未找到 hosts 文件：$MODULE_HOSTS"
+fi
 
 # 安装 APK 文件
-APK_PATH="$MODPATH/apk/AForest_analytics.apk" 
-APK_PATH="$MODPATH/apk/MIUI安全组件.apk" 
-if [ -f "$APK_PATH" ]; then
-    ui_print "- 正在安装 APK 文件..."
-    pm install -r "$APK_PATH" > /dev/null 2>&1  # 使用 pm 安装
-    if [ $? -eq 0 ]; then
-        ui_print "- APK 安装成功！"
-        
-        ui_print "- 等待 5 秒后跳转到 QQ 群：813871163"
-        sleep 5
-
-        QQ_GROUP_URL="mqqapi://card/show_pslcard?src_type=internal&version=1&uin=813871163&card_type=group&source=qrcode"
-        am start -a android.intent.action.VIEW -d "$QQ_GROUP_URL" > /dev/null 2>&1
-        if [ $? -eq 0 ]; then
-            ui_print "- 已成功打开 QQ 群！"
-        else
-            ui_print "- 无法跳转到 QQ 群，请检查 QQ 是否安装！"
+APK_DIR="$MODPATH/apk"
+if [ -d "$APK_DIR" ]; then
+    for apk in "$APK_DIR"/*.apk; do
+        if [ -f "$apk" ]; then
+            echo "- 正在安装 APK 文件：$(basename "$apk")"
+            pm install -r "$apk" > /dev/null 2>&1
+            if [ $? -eq 0 ]; then
+                echo "- APK $(basename "$apk") 安装成功！"
+            else
+                echo "- APK $(basename "$apk") 安装失败，请检查日志！"
+            fi
         fi
-    else
-        ui_print "- APK 安装失败，请检查日志！"
-    fi
+    done
+    # 清理 APK 目录
+    rm -rf "$APK_DIR"
+    echo "- APK 目录已清理！"
 else
-    ui_print "- 未找到 APK 文件：$APK_PATH"
+    echo "- 未找到 APK 目录：$APK_DIR"
 fi
 
 # 清理临时文件
-rm -rf "$MODPATH/LICENSE"
-rm -rf "$MODPATH/apk"
-
-ui_print "- hosts 文件成功替换！"
+LICENSE_FILE="$MODPATH/LICENSE"
+if [ -f "$LICENSE_FILE" ]; then
+    rm -f "$LICENSE_FILE"
+    echo "- LICENSE 文件已清理！"
+fi
+echo "- 操作完成！"
